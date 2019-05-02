@@ -22,7 +22,7 @@ feature "user adds two numbers" do
   scenario "do not supply a first number" do
     visit '/'
     fill_in "Second Number", with: '5'
-    click_button '+'    
+    click_button '+'
     expect(page).to have_content("Error! " +
       "Please supply more than one number")
   end
