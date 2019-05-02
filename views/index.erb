@@ -1,4 +1,7 @@
 <h1>Calculator</h1>
+<% if @error %>
+  <h3>Error! <%= @error %></h3>
+<% end %>
 
 <% if @result %>
   <h3>Last result: <%= @result %></h3>

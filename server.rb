@@ -9,19 +9,24 @@ set :bind, '0.0.0.0'  # bind to all interfaces
 
 post '/calculate' do
   @result = nil
-  first_number = params[:first_number].to_i
-  second_number = params[:second_number].to_i
-  case params[:operation]
-  when "+"
-    @result = first_number + second_number
-  when "-"
-    @result = first_number - second_number
-  when "*"
-    @result = first_number * second_number
-  when "/"
-    @result = first_number / second_number
+  @error = nil
+  if params[:first_number] != '' && params[:second_number] != ''
+    first_number = params[:first_number].to_i
+    second_number = params[:second_number].to_i
+    case params[:operation]
+    when "+"
+      @result = first_number + second_number
+    when "-"
+      @result = first_number - second_number
+    when "*"
+      @result = first_number * second_number
+    when "/"
+      @result = first_number / second_number
+    else
+      @result = nil
+    end
   else
-    @result = nil
+    @error = "Please supply more than one number"
   end
   erb :index
 end
