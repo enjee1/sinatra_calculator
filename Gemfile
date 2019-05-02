@@ -6,5 +6,7 @@ gem 'rake'
 
 group :test, :development do
   gem 'pry'
+  gem 'rspec'
+  gem 'capybara'
+  gem 'launchy'
 end
-
