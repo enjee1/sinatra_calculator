@@ -15,7 +15,7 @@ feature "user adds two numbers" do
     fill_in "First Number", with: '3'
     fill_in "Second Number", with: '5'
     click_button '+'
-
+    binding.pry 
     expect(page).to have_content("result: #{3 + 5}")
   end
 
